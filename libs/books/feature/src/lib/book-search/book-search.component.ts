@@ -24,8 +24,7 @@ import { Subject } from 'rxjs';
 export class BookSearchComponent implements OnInit, OnDestroy {
   constants = Constants;
   books$ = this.store.select(getAllBooks);
-
-  public instantSearchText: string;
+  
   private componentDestroyed: Subject<boolean> = new Subject();
 
   searchForm = this.fb.group({
@@ -49,8 +48,7 @@ export class BookSearchComponent implements OnInit, OnDestroy {
         distinctUntilChanged(),
         takeUntil(this.componentDestroyed)
       )
-      .subscribe((searchTerm) => {
-        this.instantSearchText = searchTerm;
+      .subscribe(() => {
         this.searchBooks();
       });
   }
