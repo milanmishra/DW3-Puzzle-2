@@ -7,7 +7,8 @@ import { createBook, SharedTestingModule } from '@tmo/shared/testing';
 import { BooksEffects } from './books.effects';
 import * as BooksActions from './books.actions';
 import { HttpTestingController } from '@angular/common/http/testing';
-import { Links } from '@tmo/shared/models';
+import { okReadsConstants } from '@tmo/shared/models';
+import { ok } from 'assert';
 
 describe('BooksEffects', () => {
   let actions: ReplaySubject<any>;
@@ -40,7 +41,7 @@ describe('BooksEffects', () => {
         done();
       });
 
-      httpMock.expectOne(`${Links.bookSearchApi}`).flush([createBook('A')]);
+      httpMock.expectOne(`${okReadsConstants.API_LINKS.BOOK_SEARCH_API}`).flush([createBook('A')]);
     });
   });
 });

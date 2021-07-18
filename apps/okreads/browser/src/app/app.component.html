@@ -2,7 +2,7 @@
   <mat-drawer-content>
     <header class="header">
       <div class="header-content">
-        <h1>{{ constants.title }}</h1>
+        <h1>{{ constants.CONSTANTS.TITLE }}</h1>
         <div>
           <button
             data-testing="toggle-reading-list"
@@ -10,7 +10,7 @@
             (click)="drawer.toggle()"
             aria-label="open reading list"
           >
-            {{ constants.readingList }}
+            {{ constants.CONSTANTS.READING_LIST }}
             <tmo-total-count></tmo-total-count>
           </button>
         </div>
@@ -23,7 +23,7 @@
   <mat-drawer #drawer mode="over" position="end">
     <div class="reading-list-container" data-testing="reading-list-container">
       <h2>
-        {{ constants.myReadingList }}
+        {{ constants.CONSTANTS.MY_READING_LIST }}
         <button
           mat-icon-button
           (click)="drawer.close()"

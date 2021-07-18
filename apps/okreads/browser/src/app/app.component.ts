@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Constants } from '@tmo/shared/models';
+import { okReadsConstants } from '@tmo/shared/models';
 
 @Component({
   selector: 'tmo-root',
@@ -7,5 +7,5 @@ import { Constants } from '@tmo/shared/models';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constants = Constants;
+  constants = okReadsConstants;
 }
