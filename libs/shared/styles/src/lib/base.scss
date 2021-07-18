@@ -22,11 +22,20 @@ input {
   padding: $spacing-xxs;
 }
 
-a {
-  cursor: pointer;
-  color: $pink-accent;
-
-  &:hover {
-    color: $pink-dark;
-  }
+.bookRemoved.mat-snack-bar-container{
+  background-color: $red;
+  color: $white;
+}
+.bookAdded.mat-snack-bar-container{
+  background-color: $green;
+  color: $white;
+}
+.mat-simple-snackbar-action {
+    color: $black ;
+    font-weight: 200;
+    background-color: $white;
+    border-radius: 3px;
+}
+.mat-simple-snackbar {
+    font-weight: 200;
 }

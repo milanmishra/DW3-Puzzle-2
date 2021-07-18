@@ -7,7 +7,7 @@ import {
   searchBooks,
 } from '@tmo/books/data-access';
 import { FormBuilder } from '@angular/forms';
-import { Book, Constants } from '@tmo/shared/models';
+import { Book, okReadsConstants } from '@tmo/shared/models';
 import {
   debounceTime,
   distinctUntilChanged,
@@ -22,10 +22,10 @@ import { Subject } from 'rxjs';
   styleUrls: ['./book-search.component.scss']
 })
 export class BookSearchComponent implements OnInit, OnDestroy {
-  constants = Constants;
+  constants = okReadsConstants;
   books$ = this.store.select(getAllBooks);
-  
-  private componentDestroyed: Subject<boolean> = new Subject();
+
+  private notifier: Subject<boolean> = new Subject();
 
   searchForm = this.fb.group({
     term: ''
@@ -46,7 +46,7 @@ export class BookSearchComponent implements OnInit, OnDestroy {
         map((val) => val.term),
         debounceTime(500),
         distinctUntilChanged(),
-        takeUntil(this.componentDestroyed)
+        takeUntil(this.notifier)
       )
       .subscribe(() => {
         this.searchBooks();
@@ -54,7 +54,7 @@ export class BookSearchComponent implements OnInit, OnDestroy {
   }
 
   addBookToReadingList = (book: Book) => {
-    this.store.dispatch(addToReadingList({ book }));
+    this.store.dispatch(addToReadingList({ book, showSnackBar:true }));
   };
 
   searchExample = () => {
@@ -69,7 +69,7 @@ export class BookSearchComponent implements OnInit, OnDestroy {
   };
 
   ngOnDestroy = () => {
-    this.componentDestroyed.next(true);
-    this.componentDestroyed.complete();
+    this.notifier.next(true);
+    this.notifier.complete();
   };
 }
