@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { getReadingList, removeFromReadingList } from '@tmo/books/data-access';
-import { Constants } from '@tmo/shared/models';
+import { okReadsConstants } from '@tmo/shared/models';
 
 @Component({
   selector: 'tmo-reading-list',
@@ -9,7 +9,7 @@ import { Constants } from '@tmo/shared/models';
   styleUrls: ['./reading-list.component.scss']
 })
 export class ReadingListComponent {
-  constants = Constants;
+  constants = okReadsConstants;
   readingList$ = this.store.select(getReadingList);
 
   constructor(private readonly store: Store) {}

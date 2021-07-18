@@ -7,7 +7,7 @@ import {
   searchBooks,
 } from '@tmo/books/data-access';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { Book, Constants } from '@tmo/shared/models';
+import { Book, okReadsConstants } from '@tmo/shared/models';
 
 @Component({
   selector: 'tmo-book-search',
@@ -15,7 +15,7 @@ import { Book, Constants } from '@tmo/shared/models';
   styleUrls: ['./book-search.component.scss']
 })
 export class BookSearchComponent {
-  constants = Constants;
+  constants = okReadsConstants;
   books$ = this.store.select(getAllBooks);
 
   searchForm = this.fb.group({

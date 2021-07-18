@@ -4,7 +4,7 @@
       autoFocus
       matInput
       type="search"
-      placeholder="{{ constants.searchForBooks }}"
+      placeholder="{{ constants.CONSTANTS.SEARCH_BOOKS }}"
       formControlName="term"
     />
     <button
@@ -13,7 +13,7 @@
       aria-label="Search button"
       [disabled]="!searchForm.valid"
     >
-      <mat-icon aria-label="Search icon">{{ constants.search }}</mat-icon>
+      <mat-icon aria-label="Search icon">{{ constants.CONSTANTS.SEARCH  }}</mat-icon>
     </button>
   </mat-form-field>
 </form>
@@ -34,13 +34,13 @@
         </div>
         <div class="book-content-info">
           <div>
-            <strong>{{ constants.author }}:</strong> {{ b.authors.join(',') }}
+            <strong>{{ constants.CONSTANTS.AUTHOR  }}:</strong> {{ b.authors.join(',') }}
           </div>
           <div>
-            <strong>{{ constants.publisher }}:</strong> {{ b.publisher }}
+            <strong>{{ constants.CONSTANTS.PUBLISHER  }}:</strong> {{ b.publisher }}
           </div>
           <div>
-            <strong>{{ constants.published }}:</strong>
+            <strong>{{ constants.CONSTANTS.PUBLISHED  }}:</strong>
             {{ b.publishedDate | date: 'dd/MM/yyyy' }}
           </div>
           <p [innerHTML]="b.description"></p>
@@ -53,7 +53,7 @@
               [disabled]="b.isAdded"
               aria-label="want to read button"
             >
-              {{ constants.wantToRead }}
+              {{ constants.CONSTANTS.WANT_TO_READ }}
             </button>
           </div>
         </div>
@@ -64,11 +64,11 @@
 <ng-template #empty>
   <div class="empty">
     <p class="search-example">
-      {{ constants.searchExample }} "<button
+      {{ constants.CONSTANTS.SEARCH_EXAMPLE }} "<button
         class="search-example-btn"
         (click)="searchExample()"
       >
-        {{ constants.javascript }}</button
+        {{ constants.CONSTANTS.JAVASCRIPT }}</button
       >".
     </p>
   </div>
